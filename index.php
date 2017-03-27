@@ -16,11 +16,12 @@
 		function get_data(){
 
 			var plac = document.getElementById('address').value;
+			var kee = document.getElementById('key').value;
 			//console.log(plac);
                 $.ajax({
                   type : "POST",
                   url : "get.php",
-                  data : {plac : plac},
+                  data : {plac : plac, kee : kee},
                   success : function(response){
                     var dat = JSON.parse(response);
                     var panel = $("#panel");
@@ -44,7 +45,11 @@
   <div class="form-inline">
     <div class="form-group">
       <label for="email" style="color: white;">Enter Place:</label>
-      <input type="text" class="form-control" size="70" id="address" placeholder="Enter place eg.. oyo delhi.." required/>
+      <input type="text" class="form-control" size="50" id="address" placeholder="Enter place eg.. oyo delhi.." required/>
+    </div>
+   <div class="form-group">
+      <label for="email" style="color: white;">Enter Place:</label>
+      <input type="text" class="form-control" size="50" id="key" placeholder="Enter YOUR API KEY" required/>
     </div>
     <button type="submit" onclick="get_data()" class="btn btn-default">Submit</button>
   </div>
