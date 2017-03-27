@@ -1,7 +1,8 @@
 <?php 
 $place1 = $_POST['plac'];
+$key1 = $_POST['kee'];
 $place = str_replace(" ", "+", $place1);
-$html = file_get_contents('https://maps.googleapis.com/maps/api/place/textsearch/json?query='.$place.'&key=API_KEY_PASTE_HERE');
+$html = file_get_contents('https://maps.googleapis.com/maps/api/place/textsearch/json?query='.$place.'&key='.$key1);
 
 $json = json_decode($html, true);
 
